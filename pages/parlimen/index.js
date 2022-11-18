@@ -12,6 +12,7 @@ export async function getStaticProps() {
 }
 export default function Calon({ allParlimenData }) {
   return (
+    <>
     <Layout>
       <table>
         <thead>
@@ -33,6 +34,6 @@ export default function Calon({ allParlimenData }) {
           ))}
         </tbody>
       </table>
-    </Layout>
+    </Layout></>
   );
 }
