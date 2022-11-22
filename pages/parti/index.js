@@ -9,7 +9,7 @@ export async function getStaticProps() {
     },
   };
 }
-export default function Calon({ allPartiData }) {
+export default function Partis({ allPartiData }) {
   return (
     <>
       <Layout>
@@ -22,10 +22,10 @@ export default function Calon({ allPartiData }) {
             </tr>
           </thead>
           <tbody>
-            {allPartiData.map((calon, index) => (
-              <tr>
-                <th>{index + 1}</th>
-                <th>{calon}</th>
+            {allPartiData.map((parti) => (
+              <tr key={parti.id}>
+                <th>{parti.id}</th>
+                <th>{parti.name}</th>
                 <th>view</th>
               </tr>
             ))}

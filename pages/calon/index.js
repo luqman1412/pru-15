@@ -3,7 +3,6 @@ import { getCalonList } from "../../lib/calons";
 
 export async function getStaticProps() {
   const allCalonData = await getCalonList();
-  console.log(allCalonData[0].name);
   return {
     props: {
       allCalonData,
@@ -26,9 +25,9 @@ export default function Calon({ allCalonData }) {
           </tr>
         </thead>
         <tbody>
-          {allCalonData.map((calon, index) => (
-            <tr>
-              <th>{index + 1}</th>
+          {allCalonData.map((calon) => (
+            <tr key={calon.id}>
+              <th>{calon.id}</th>
               <th>{calon.nama}</th>
               <th>
                 {calon.kod} - {calon.nama_parlimen}

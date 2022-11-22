@@ -3,7 +3,7 @@ import { getParlimensList } from "../../lib/parlimens";
 
 export async function getStaticProps() {
   const allParlimenData = await getParlimensList();
-  console.log(allParlimenData);
+//   console.log(allParlimenData);
   return {
     props: {
       allParlimenData,
@@ -25,8 +25,8 @@ export default function Calon({ allParlimenData }) {
         </thead>
         <tbody>
           {allParlimenData.map((calon, index) => (
-            <tr>
-              <th>{index + 1}</th>
+            <tr key={calon.id}>
+              <th>{calon.id}</th>
               <th>{calon.nama}</th>
               <th>{calon.kod}</th>
               <th>view</th>

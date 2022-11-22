@@ -1,28 +1,28 @@
 import Layout from "../../components/layout";
-import { getAllCalonId, getCalonDetail } from "../../lib/calons";
+import { getAllPartisId, getPartiDetail } from "../../lib/partis";
 
 export async function getStaticPaths() {
-  const paths = await getAllCalonId();
+  const paths = await getAllPartisId();
   return {
     paths,
     fallback: false,
   };
 }
 export async function getStaticProps({ params }) {
-  const calonDetail = await getCalonDetail(params.id);
+  const partiDetail = await getPartiDetail(params.id);
+  console.log(partiDetail)
   return {
     props: {
-        calonDetail,
+        partiDetail,
     },
   };
 }
 
-export default function Calon(calonDetail) {
+export default function Parti(partiDetail) {
   return (
     <>
      <Layout>
-     <h1>Calon Detail </h1>
-      <h2>{calonDetail.id}</h2>
+     {partiDetail.name}
      </Layout>
     </>
   );
